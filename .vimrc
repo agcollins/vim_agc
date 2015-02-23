@@ -6,7 +6,9 @@ call vundle#rc()
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
+
+"not sure if we need this to be Vundle.vim, because in my .vimrc it's just /vundle (also with no caps on the V - which is strange..)
 
 " We could also add repositories with a ".git" extension
 
