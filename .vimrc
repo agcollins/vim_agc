@@ -16,7 +16,9 @@ Plugin 'gmarik/vundle'
 Plugin 'tpope/vim-surround'
 Plugin 'msanders/snipmate.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'tomasr/molokai'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'Shougo/vimproc.vim'
+
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 
