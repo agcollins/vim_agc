@@ -4,7 +4,12 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Plugin 'gmarik/vundle'
+" This is the Vundle package, which can be found on GitHub.
+" For GitHub repos, you specify plugins using the
+" 'user/repository' format
+Plugin 'gmarik/Vundle.vim'
+
+"not sure if we need this to be Vundle.vim, because in my .vimrc it's just /vundle (also with no caps on the V - which is strange..)
 
 Plugin 'tpope/vim-surround'
 Plugin 'msanders/snipmate.vim'
@@ -23,7 +28,7 @@ filetype plugin indent on
 set number ruler showcmd laststatus=2
 
 "indentation and tabbing options
-set autoindent smartindent expandtab tabstop=4 shiftwidth=4
+set autoindent smartindent noexpandtab tabstop=4 shiftwidth=4
 
 "searching options
 set incsearch ignorecase smartcase hlsearch showmatch
@@ -77,9 +82,8 @@ highlight LineNr ctermfg=darkgrey
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=darkgrey
 hi IndentGuidesEven ctermbg=none
-let g:indent_guides_start_level = 2
 
-let g:indent_guides_guide_size = 1
+let g:indent_guides_guide_size = 3
 
 "syntastic settings
 set statusline+=%#warningmsg#
