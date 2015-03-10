@@ -1,42 +1,47 @@
 set nocompatible
 
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
-Plugin 'gmarik/Vundle.vim'
 
 "not sure if we need this to be Vundle.vim, because in my .vimrc it's just /vundle (also with no caps on the V - which is strange..)
 
+Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'msanders/snipmate.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'haskell.vim'
+Plugin 'othree/html5.vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'Valloric/YouCompleteMe'
+
 
 " Now we can turn our filetype functionality back on
+call vundle#end()
 filetype plugin indent on
 
 "setting up the status bar with some useful information
 set number ruler showcmd laststatus=2
 
 "indentation and tabbing options
-set autoindent smartindent noexpandtab tabstop=4 shiftwidth=4
+set autoindent smartindent noexpandtab tabstop=2 shiftwidth=2
 
 "searching options
 set incsearch ignorecase smartcase hlsearch showmatch
 
 "miscellaneous settings
 set shortmess=I
-set lazyredraw
 set wildmenu
+set foldmethod=syntax
 
 "easier navigation of splits
 nnoremap <C-J> <C-W><C-J>
@@ -75,23 +80,23 @@ nnoremap <leader>x :x<Return>
 nnoremap <leader>w :w<Return>
 
 "colorscheme and color setup
-colorscheme Chasing_Logic
+
+colorscheme molokai
+
 highlight LineNr ctermfg=darkgrey
 
 "indent-guide settings
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=darkgrey
-hi IndentGuidesEven ctermbg=none
 
-let g:indent_guides_guide_size = 3
+let g:indent_guides_guide_size = 1
 
 "syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_loc_list_height = 5 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0 
+"let g:syntastic_loc_list_height = 5 
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+""let g:syntastic_check_on_wq = 0 
+
