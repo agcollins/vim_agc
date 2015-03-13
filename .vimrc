@@ -22,7 +22,9 @@ Plugin 'othree/html5.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Townk/vim-autoclose'
+Plugin 'amirh/HTML-AutoCloseTag'
+Plugin 'matchit.zip'
 
 
 " Now we can turn our filetype functionality back on
@@ -38,10 +40,15 @@ set autoindent smartindent noexpandtab tabstop=2 shiftwidth=2
 "searching options
 set incsearch ignorecase smartcase hlsearch showmatch
 
+"backspace settings
+set backspace=indent,eol,start
+
 "miscellaneous settings
 set shortmess=I
 set wildmenu
 set foldmethod=syntax
+
+syntax on
 
 "easier navigation of splits
 nnoremap <C-J> <C-W><C-J>
@@ -90,13 +97,13 @@ highlight LineNr ctermfg=darkgrey
 let g:indent_guides_guide_size = 1
 
 "syntastic settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-"let g:syntastic_loc_list_height = 5 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-""let g:syntastic_check_on_wq = 0 
+let g:syntastic_loc_list_height = 5 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0 
 
