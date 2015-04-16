@@ -25,11 +25,22 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'Townk/vim-autoclose'
 Plugin 'amirh/HTML-AutoCloseTag'
 Plugin 'matchit.zip'
-
+Plugin 'gregsexton/MatchTag'
+Plugin 'scrooloose/nerdtree'
+Plugin 'burnettk/vim-angular'
+Plugin 'walm/jshint.vim'
+Plugin 'Shutnik/jshint2.vim'
 
 " Now we can turn our filetype functionality back on
 call vundle#end()
 filetype plugin indent on
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+map <leader>n :NERDTreeToggle<CR>
 
 "setting up the status bar with some useful information
 set number ruler showcmd laststatus=2
@@ -46,9 +57,6 @@ set backspace=indent,eol,start
 "miscellaneous settings
 set shortmess=I
 set wildmenu
-set foldmethod=syntax
-
-syntax on
 
 "easier navigation of splits
 nnoremap <C-J> <C-W><C-J>
@@ -73,7 +81,7 @@ nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
 "leader is now spacebar
-let mapleader=" " 
+let mapleader="," 
 
 "leader shortcuts 
 "------------------
@@ -106,4 +114,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0 
+let g:syntastic_javascript_checkers = ['jshint']
 
+syntax on
