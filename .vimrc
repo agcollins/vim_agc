@@ -1,5 +1,6 @@
 set nocompatible
 
+
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -22,7 +23,6 @@ Plugin 'othree/html5.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'Townk/vim-autoclose'
 Plugin 'amirh/HTML-AutoCloseTag'
 Plugin 'matchit.zip'
 Plugin 'gregsexton/MatchTag'
@@ -30,6 +30,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'burnettk/vim-angular'
 Plugin 'walm/jshint.vim'
 Plugin 'Shutnik/jshint2.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Shougo/unite.vim'
+
 
 " Now we can turn our filetype functionality back on
 call vundle#end()
@@ -71,10 +74,6 @@ nnoremap k gk
 "H and L are now start and end of line, respectively
 nnoremap H ^
 nnoremap L $
-
-"J and K are now 1/2 page up and down, respectively
-nmap <S-J> <C-D>
-nmap <S-K> <C-U>
 
 "pressing enter inserts a line below the current one without going into insert mode.
 nmap <S-Enter> O<Esc>
