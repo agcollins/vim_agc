@@ -31,6 +31,7 @@ Plugin 'ervandew/supertab'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'sickill/vim-pasta'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'TeTrIs.vim'
 
 " Now we can turn our filetype functionality back on
 call vundle#end()
