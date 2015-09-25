@@ -28,6 +28,7 @@ Plugin 'TeTrIs.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'rip-rip/clang_complete'
 
 call vundle#end()
 filetype plugin indent on
@@ -126,6 +127,7 @@ nnoremap <leader>rc :e $MYVIMRC<CR>
 nnoremap <leader>x :x<Return>
 "leader z saves your current session to ~/agc_session.vim,
 "and writes and quits all buffers.
+"open this session with the 'vims' alias, as mentioned in my README file. 
 nnoremap <leader>z :!mksession ~/.vim/agc_session.vim<Return>:xa<Return>
 "leader w is same as :w
 nnoremap <leader>w :w<Return>
