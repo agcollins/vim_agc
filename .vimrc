@@ -51,7 +51,6 @@ set foldmethod=indent
 set foldlevelstart=20
 autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
 
-
 "setting up the status bar with some useful information
 
 set number ruler showcmd laststatus=2
@@ -120,7 +119,7 @@ let mapleader=","
 "leader shortcuts!
 
 "leader rc is open vimrc file
-nnoremap <leader>rc :vsp $MYVIMRC<CR>
+nnoremap <leader>rc :e $MYVIMRC<CR>
 "leader x is same as :x 
 nnoremap <leader>x :x<Return>
 "leader w is same as :w
@@ -140,18 +139,12 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_loc_list_height = 5 
-let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0 
 let g:syntastic_javascript_checkers = ['jshint']
 
-"NERDTree Settings
-
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 "something something something
+
 hi IndentGuidesEven ctermbg=None
