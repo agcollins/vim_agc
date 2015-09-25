@@ -19,13 +19,13 @@ One quick note:
 
     alias vims='vim -S ~/.vim/agc_session.s'
 
-  Now, to have bash reflecting from your terminal, run
+  Now, to have bash reflect the changes in the .bashrc file, from your terminal, type
     
     $ bash
 
   From this point forward, if you'd like to exit from vim, save all of your current buffers and write all of that to a session, press <leader> (the ',' key) x.
 
-  To restore that session you're going to type 
+  To restore that session you're going to type
 
     $ vims
 
@@ -35,4 +35,4 @@ One quick note:
 
   At your terminal. This alias just opens that session you just created with <leader> x
 
-Now enjoy my .vimrc!
+#Now enjoy my .vimrc!
