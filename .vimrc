@@ -83,11 +83,13 @@ set backspace=indent,eol,start
 
 set shortmess=I
 set wildmenu
+
+"session settings - a saved session will now save the buffers, too
+
+set sessionoptions=buffers
  
 "because I press control + c all the time
 "and I need to stop.
-
-
 "please help me
 
 nnoremap <C-c> <Esc>
@@ -122,6 +124,9 @@ let mapleader=","
 nnoremap <leader>rc :e $MYVIMRC<CR>
 "leader x is same as :x 
 nnoremap <leader>x :x<Return>
+"leader z saves your current session to ~/agc_session.vim,
+"and writes and quits all buffers.
+nnoremap <leader>z :!mksession ~/.vim/agc_session.vim<Return>:xa<Return>
 "leader w is same as :w
 nnoremap <leader>w :w<Return>
 "leader r is replace all
