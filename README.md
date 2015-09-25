@@ -4,7 +4,7 @@ In order to get these plugins to work, you're going to need to install [Vundle.]
 
 Now you're going to have to clone this repo and replace your .vimrc with mine. In your shell, type the following:
 
-    $ git clone http://github.com/agcollins/vim_agc ~/ && cp ~/vim_agc/.vimrc ~/ 
+    $ git clone http://github.com/agcollins/vim_agc.git ~/vim_agc && cp ~/vim_agc/.vimrc ~/.vimrc 
 
 Now, just as in the Vundle installation README, you're going to open vim and do :PluginInstall (if you have previously installed plugins with vundle, run a :PluginClean before you install).
 
