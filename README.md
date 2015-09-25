@@ -23,7 +23,7 @@ One quick note:
     
     $ bash
 
-  From this point forward, if you'd like to exit from vim, save all of your current buffers and write all of that to a session, press <leader> (the ',' key) x.
+  From this point forward, if you'd like to exit from vim, save all of your current buffers and write all of that to a session, press leader (the ',' key) x.
 
   To restore that session you're going to type
 
@@ -33,6 +33,6 @@ One quick note:
 
     $ vim
 
-  At your terminal. This alias just opens that session you just created with <leader> x
+  At your terminal. This alias just opens that session you just created with leader x
 
 #Now enjoy my .vimrc!
