@@ -6,29 +6,33 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
-Plugin 'haskell.vim'
-Plugin 'othree/html5.vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'amirh/HTML-AutoCloseTag'
-Plugin 'matchit.zip'
-Plugin 'gregsexton/MatchTag'
+"Plugin 'haskell.vim'
+"Plugin 'othree/html5.vim'
+"Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'hail2u/vim-css3-syntax'
+"Plugin 'amirh/HTML-AutoCloseTag'
+"Plugin 'matchit.zip'
+"Plugin 'gregsexton/MatchTag'
 Plugin 'scrooloose/nerdtree'
-Plugin 'burnettk/vim-angular'
-Plugin 'walm/jshint.vim'
-Plugin 'Shutnik/jshint2.vim'
+"Plugin 'burnettk/vim-angular'
+"Plugin 'walm/jshint.vim'
+"Plugin 'Shutnik/jshint2.vim'
 "Plugin 'jiangmiao/auto-pairs'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
-Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'sickill/vim-pasta'
 Plugin 'TeTrIs.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'rip-rip/clang_complete'
+Plugin 'mileszs/ack.vim'
+Plugin 'shmup/vim-sql-syntax'
+Plugin 'gnu-c'
+Plugin 'dhruvasagar/vim-table-mode'
 
 call vundle#end()
 filetype plugin indent on
@@ -37,13 +41,13 @@ filetype plugin indent on
 
 set t_Co=256
 syntax enable
-set background=light
+set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=white
-hi IndentGuidesEven  ctermbg=None
+"let g:indent_guides_auto_colors = 0
+"hi IndentGuidesOdd  ctermbg=white
+"hi IndentGuidesEven  ctermbg=None
 
 "when you're in these filetypes, the fold method will be set to syntax,
 "allowing you to read that code that you stuffed in main() (*gulp*)
@@ -51,6 +55,12 @@ hi IndentGuidesEven  ctermbg=None
 set foldmethod=indent
 set foldlevelstart=20
 autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
+
+"tag options! great for large projects. vim first searches the current
+"directory for a 'tags' file, then recursively searches upward until
+"it hits the home directory.
+
+set tags=./tags;$HOME
 
 "setting up the status bar with some useful information
 
@@ -80,20 +90,26 @@ set incsearch ignorecase smartcase hlsearch showmatch
 
 set backspace=indent,eol,start
 
-"miscellaneous settings
-
-set shortmess=I
-set wildmenu
-
 "session settings - a saved session will now save the buffers, too
 
-set sessionoptions=buffers
+set sessionoptions=buffers,tabpages
+
+"miscellaneous settings
+
+set shortmess=I wildmenu virtualedit=all
+
+"ctrl-p is awesome but it needs to search by filename and 
+"regex  by default.
+
+let g:ctrlp_by_filename = 1
  
 "because I press control + c all the time
 "and I need to stop.
 "please help me
 
 nnoremap <C-c> <Esc>
+inoremap <C-c> <Esc>
+vnoremap <C-c> <Esc> 
 
 "easier navigation of splits
 
@@ -121,6 +137,12 @@ let mapleader=","
 
 "leader shortcuts!
 
+nnoremap <leader>/ g<C-]>
+nnoremap <leader>, :AckWindow 
+"leader t will open a new tab (will contain the current file)
+nnoremap <leader>t :tabe %<CR>
+"leader tab will go to the next tab
+nnoremap <leader><Tab> :tabn<CR>
 "leader rc is open vimrc file
 nnoremap <leader>rc :e $MYVIMRC<CR>
 "leader x is same as :x 
@@ -137,21 +159,21 @@ nnoremap <leader>r :%s/\<<C-r><C-w>\>/
 "filenames -- NERDTree!
 map <leader>n :NERDTreeToggle<CR>
 "If you're using syntastic but there's not any reason to use it ...sigh...
-map <leader>s :SyntasticToggleMode<CR>
+"map <leader>s :SyntasticToggleMode<CR>
 
 "syntastic settings
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_loc_list_height = 5 
+"let g:syntastic_loc_list_height = 5 
 "let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0 
-let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0 
+"let g:syntastic_javascript_checkers = ['jshint']
 
 "something something something
 
-hi IndentGuidesEven ctermbg=None
+"hi IndentGuidesEven ctermbg=None
