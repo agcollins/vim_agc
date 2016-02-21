@@ -33,6 +33,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'shmup/vim-sql-syntax'
 Plugin 'gnu-c'
 Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'mbbill/undotree'
 
 call vundle#end()
 filetype plugin indent on
@@ -94,9 +95,13 @@ set backspace=indent,eol,start
 
 set sessionoptions=buffers,tabpages
 
+"paste mode! Look this up!
+set pastetoggle=<F9>
+
 "miscellaneous settings
 
-set shortmess=I wildmenu virtualedit=all
+set shortmess=I wildmenu 
+"virtualedit=all
 
 "ctrl-p is awesome but it needs to search by filename and 
 "regex  by default.
@@ -108,8 +113,6 @@ let g:ctrlp_by_filename = 1
 "please help me
 
 nnoremap <C-c> <Esc>
-inoremap <C-c> <Esc>
-vnoremap <C-c> <Esc> 
 
 "easier navigation of splits
 
@@ -137,6 +140,7 @@ let mapleader=","
 
 "leader shortcuts!
 
+nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>/ g<C-]>
 nnoremap <leader>, :AckWindow 
 "leader t will open a new tab (will contain the current file)
