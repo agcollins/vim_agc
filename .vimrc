@@ -155,11 +155,14 @@ nnoremap k gk
 nnoremap ; :
 
 "pressing enter inserts a line below the current one without going into insert mode
-"and pressing shift+enter inserts a line above the current one without going
+"and pressing \ inserts a line above the current one without going
 "into insert mode
+"
+"normally, I would have used shift + enter instead of \ for this command, but
+"it doesn't seem to work for terminal versions of vim. awesome. love it.
 
-nmap <S-CR> O<Esc>
-nmap <CR> o<Esc>
+nnoremap <CR> o<Esc>
+nnoremap \ O<Esc>
 
 "leader is now comma
 let mapleader="," 
