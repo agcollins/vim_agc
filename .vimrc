@@ -6,23 +6,10 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
-"Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
-"Plugin 'haskell.vim'
-"Plugin 'othree/html5.vim'
-"Plugin 'jelera/vim-javascript-syntax'
-"Plugin 'hail2u/vim-css3-syntax'
-"Plugin 'amirh/HTML-AutoCloseTag'
-"Plugin 'matchit.zip'
-"Plugin 'gregsexton/MatchTag'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'burnettk/vim-angular'
-"Plugin 'walm/jshint.vim'
-"Plugin 'Shutnik/jshint2.vim'
-"Plugin 'jiangmiao/auto-pairs'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
-"Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'sickill/vim-pasta'
 Plugin 'TeTrIs.vim'
 Plugin 'kien/ctrlp.vim'
@@ -34,6 +21,22 @@ Plugin 'shmup/vim-sql-syntax'
 Plugin 'gnu-c'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'mbbill/undotree'
+
+" UNUSED "
+
+"Plugin 'scrooloose/syntastic'
+"Plugin 'haskell.vim'
+"Plugin 'othree/html5.vim'
+"Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'hail2u/vim-css3-syntax'
+"Plugin 'amirh/HTML-AutoCloseTag'
+"Plugin 'matchit.zip'
+"Plugin 'gregsexton/MatchTag'
+"Plugin 'burnettk/vim-angular'
+"Plugin 'walm/jshint.vim'
+"Plugin 'Shutnik/jshint2.vim'
+"Plugin 'jiangmiao/auto-pairs'
+"Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 filetype plugin indent on
@@ -69,7 +72,7 @@ set number ruler showcmd laststatus=2
 
 "indentation and tabbing options
 
-set autoindent smartindent expandtab tabstop=2 shiftwidth=2
+set autoindent smartindent expandtab tabstop=4 shiftwidth=4
 
 "lazy redraw can improve performance on toasters
 
@@ -91,6 +94,25 @@ set incsearch ignorecase smartcase hlsearch showmatch
 
 set backspace=indent,eol,start
 
+
+"the directory for said undo file.
+
+"silent call mkdir("~/.vim/agc_undo", "p")
+silent !mkdir ~/.vim/agc_undo > /dev/null 2>&1
+set undodir=~/.vim/agc_undo
+
+"undo file. it's pretty nice.
+
+set undofile
+
+"while we're at it, let's get rid of those ugly .swp files in your
+"precious project directories. Everyone hates adding those to github on
+"accident (because what is .gitignore, am I right, guys? ...guys?)
+
+"silent call mkdir("~/.vim/agc_backup", "p")
+silent !mkdir ~/.vim/agc_backup > /dev/null 2>&1
+set backupdir=~/.vim/agc_backup
+
 "session settings - a saved session will now save the buffers, too
 
 set sessionoptions=buffers,tabpages
@@ -101,7 +123,6 @@ set pastetoggle=<F9>
 "miscellaneous settings
 
 set shortmess=I wildmenu 
-"virtualedit=all
 
 "ctrl-p is awesome but it needs to search by filename and 
 "regex  by default.
@@ -128,6 +149,11 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap j gj
 nnoremap k gk
 
+"I hate pressing shift for my colon commands.
+"You should, too.
+
+nnoremap ; :
+
 "pressing enter inserts a line below the current one without going into insert mode
 "and pressing shift+enter inserts a line above the current one without going
 "into insert mode
@@ -140,6 +166,12 @@ let mapleader=","
 
 "leader shortcuts!
 
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap <C-E> 10<C-E><S-M>
+nnoremap <C-Y> 10<C-Y><S-M>
+nnoremap <C-D> <C-D><S-M>
+nnoremap <C-U> <C-U><S-M>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>/ g<C-]>
 nnoremap <leader>, :AckWindow 
