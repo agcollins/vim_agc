@@ -128,6 +128,12 @@ set shortmess=I wildmenu
 "regex  by default.
 
 let g:ctrlp_by_filename = 1
+
+"SuperTab is great. It also opens a really annoying scratch window
+"that won't go away unless you tell it to very politely.
+"This fixes that.
+
+let g:SuperTabClosePreviewOnPopupClose = 1
  
 "because I press control + c all the time
 "and I need to stop.
