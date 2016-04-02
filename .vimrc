@@ -21,6 +21,8 @@ Plugin 'shmup/vim-sql-syntax'
 Plugin 'gnu-c'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'mbbill/undotree'
+Plugin 'morhetz/gruvbox'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " UNUSED "
 
@@ -36,7 +38,6 @@ Plugin 'mbbill/undotree'
 "Plugin 'walm/jshint.vim'
 "Plugin 'Shutnik/jshint2.vim'
 "Plugin 'jiangmiao/auto-pairs'
-"Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 filetype plugin indent on
@@ -46,8 +47,11 @@ filetype plugin indent on
 set t_Co=256
 syntax enable
 set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+"let g:solarized_termcolors=256
+colorscheme gruvbox
+
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
 
 "let g:indent_guides_auto_colors = 0
 "hi IndentGuidesOdd  ctermbg=white
@@ -72,7 +76,7 @@ set number ruler showcmd laststatus=2
 
 "indentation and tabbing options
 
-set autoindent smartindent expandtab tabstop=4 shiftwidth=4
+set autoindent smartindent expandtab tabstop=2 shiftwidth=2
 
 "lazy redraw can improve performance on toasters
 
