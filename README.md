@@ -13,7 +13,7 @@ One quick note:
 
   Add the following line:
 
-    alias vims='vim -S ~/.vim/agc_session.s'
+    alias vims='vim -S ~/.vim/agc_session.vim'
 
   Now, to have bash reflect the changes in the .bashrc file, from your terminal, type
     

@@ -18,26 +18,27 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'rip-rip/clang_complete'
 Plugin 'mileszs/ack.vim'
 Plugin 'shmup/vim-sql-syntax'
-Plugin 'gnu-c'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'mbbill/undotree'
 Plugin 'morhetz/gruvbox'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'gregsexton/MatchTag'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'matchit.zip'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " UNUSED "
 
 "Plugin 'scrooloose/syntastic'
 "Plugin 'haskell.vim'
 "Plugin 'othree/html5.vim'
-"Plugin 'jelera/vim-javascript-syntax'
 "Plugin 'hail2u/vim-css3-syntax'
 "Plugin 'amirh/HTML-AutoCloseTag'
-"Plugin 'matchit.zip'
-"Plugin 'gregsexton/MatchTag'
 "Plugin 'burnettk/vim-angular'
 "Plugin 'walm/jshint.vim'
 "Plugin 'Shutnik/jshint2.vim'
-"Plugin 'jiangmiao/auto-pairs'
+"Plugin 'gnu-c'
 
 call vundle#end()
 filetype plugin indent on
@@ -50,8 +51,16 @@ set background=dark
 "let g:solarized_termcolors=256
 colorscheme gruvbox
 
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+let g:indent_guides_guide_size = 1 
+let g:indent_guides_enable_on_vim_startup = 1
 
 "let g:indent_guides_auto_colors = 0
 "hi IndentGuidesOdd  ctermbg=white
