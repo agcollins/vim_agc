@@ -10,15 +10,15 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
-Plugin 'sickill/vim-pasta'
-Plugin 'TeTrIs.vim'
+"Plugin 'sickill/vim-pasta'
+"Plugin 'TeTrIs.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'rip-rip/clang_complete'
-Plugin 'mileszs/ack.vim'
-Plugin 'shmup/vim-sql-syntax'
-Plugin 'dhruvasagar/vim-table-mode'
+"Plugin 'mileszs/ack.vim'
+"Plugin 'shmup/vim-sql-syntax'
+"Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'mbbill/undotree'
 Plugin 'morhetz/gruvbox'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -26,7 +26,26 @@ Plugin 'gregsexton/MatchTag'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'matchit.zip'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'octol/vim-cpp-enhanced-highlight'
+"Plugin 'octol/vim-cpp-enhanced-highlight'
+
+"VimShell Stuff
+Plugin 'shougo/vimproc.vim'
+"Plugin 'shougo/vimshell.vim'
+Plugin 'shougo/neocomplete.vim'
+"Plugin 'shougo/unite.vim'
+Plugin 'shougo/neomru.vim'
+
+"Other
+Plugin 'LustyJuggler'
+Plugin 'gorkunov/smartpairs.vim'
+Plugin 'scrooloose/nerdcommenter'
+
+"Show marks
+Plugin 'kshenoy/vim-signature'
+"Plugin 'ShowMarks'
+
+"Autopairs
+"Plugin 'jiangmiao/auto-pairs'
 
 " UNUSED "
 
@@ -38,7 +57,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 "Plugin 'burnettk/vim-angular'
 "Plugin 'walm/jshint.vim'
 "Plugin 'Shutnik/jshint2.vim'
-"Plugin 'gnu-c'
+" Plugin 'gnu-c'
 
 call vundle#end()
 filetype plugin indent on
@@ -71,7 +90,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 set foldmethod=indent
 set foldlevelstart=20
-autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
+"autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
 
 "tag options! great for large projects. vim first searches the current
 "directory for a 'tags' file, then recursively searches upward until
@@ -82,14 +101,54 @@ set tags=./tags;$HOME
 "setting up the status bar with some useful information
 
 set number ruler showcmd laststatus=2
+set relativenumber
+set clipboard=unnamed
+"set cursorline
+
+
+" I got the following few lines from ideas in ehartc's rc on github. Check
+" him out, for sure.
+"
+" https://github.com/ehartc/dot-vimrc
+"
+" DO IT NOW 
+
+set nojoinspaces
+
+set splitright
+set splitbelow
+
+nnoremap <Backspace> g;
+nnoremap <Delete> <ESC>diwi
+
+imap <C-k> <C-o>k
+imap <C-j> <C-o>j
+imap <C-h> <C-o>h
+imap <C-l> <C-o>l
+
+" Move visual block.
+vnoremap <silent> J :m '>+1<CR>gv=gv
+vnoremap <silent> K :m '<-2<CR>gv=gv
+
+"Speed up syntax highlighting {
+set nocursorcolumn
+set nocursorline
+syntax sync minlines=100
+syntax sync maxlines=240
+" Don't try to highlight lines longer than 800 characters, in
+"order to speed up the viewport.
+set synmaxcol=900
+" }
 
 "indentation and tabbing options
 
-set autoindent smartindent expandtab tabstop=2 shiftwidth=2
+set autoindent smartindent expandtab tabstop=4 shiftwidth=4
 
 "lazy redraw can improve performance on toasters
 
 set lazyredraw
+set ttyfast
+set ttyscroll=3
 
 "this allows you to open a file and then have the directory change to that of
 "the open file. this doesn't work with something like VimShell, but I'm
@@ -97,11 +156,12 @@ set lazyredraw
 "fully-featured enough to use (e.g. man pages were a disaster to open in
 "VimShell).
 
-set autochdir
+set virtualedit=block
 
 "searching options
 
-set incsearch ignorecase smartcase hlsearch showmatch
+set incsearch ignorecase smartcase hlsearch showmatch 
+set matchtime=1
 
 "backspace settings
 
@@ -137,11 +197,6 @@ set pastetoggle=<F9>
 
 set shortmess=I wildmenu 
 
-"ctrl-p is awesome but it needs to search by filename and 
-"regex  by default.
-
-let g:ctrlp_by_filename = 1
-
 "SuperTab is great. It also opens a really annoying scratch window
 "that won't go away unless you tell it to very politely.
 "This fixes that.
@@ -153,6 +208,10 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 "please help me
 
 nnoremap <C-c> <Esc>
+imap jk <ESC>
+imap kj <ESC>
+
+"nnoremap <C-P> :Unite file file_rec buffer file_mru command<CR>i
 
 "easier navigation of splits
 
@@ -190,13 +249,12 @@ let mapleader=","
 
 nnoremap n nzz
 nnoremap N Nzz
-nnoremap <C-E> 10<C-E><S-M>
-nnoremap <C-Y> 10<C-Y><S-M>
+nnoremap <C-E> 5<C-E><S-M>
+nnoremap <C-Y> 5<C-Y><S-M>
 nnoremap <C-D> <C-D><S-M>
 nnoremap <C-U> <C-U><S-M>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>/ g<C-]>
-nnoremap <leader>, :AckWindow 
 "leader t will open a new tab (will contain the current file)
 nnoremap <leader>t :tabe %<CR>
 "leader tab will go to the next tab
@@ -218,20 +276,7 @@ nnoremap <leader>r :%s/\<<C-r><C-w>\>/
 map <leader>n :NERDTreeToggle<CR>
 "If you're using syntastic but there's not any reason to use it ...sigh...
 "map <leader>s :SyntasticToggleMode<CR>
-
-"syntastic settings
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_loc_list_height = 5 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 0
-"let g:syntastic_check_on_wq = 0 
-"let g:syntastic_javascript_checkers = ['jshint']
-
-"something something something
-
-"hi IndentGuidesEven ctermbg=None
+map <leader>m :VimShell<CR>
+map <leader>cd :cd %:p:h<CR>
+map <leader>s :w<CR>:source %<CR>:PluginInstall<CR>:x<CR>
+"map <leader>y 
