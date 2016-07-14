@@ -10,54 +10,41 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
-"Plugin 'sickill/vim-pasta'
-"Plugin 'TeTrIs.vim'
+Plugin 'TeTrIs.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'rip-rip/clang_complete'
-"Plugin 'mileszs/ack.vim'
-"Plugin 'shmup/vim-sql-syntax'
-"Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'mbbill/undotree'
 Plugin 'morhetz/gruvbox'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'gregsexton/MatchTag'
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'matchit.zip'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/html5.vim'
+Plugin 'hail2u/vim-css3-syntax'
 Plugin 'kien/rainbow_parentheses.vim'
-"Plugin 'octol/vim-cpp-enhanced-highlight'
-
-"VimShell Stuff
-Plugin 'shougo/vimproc.vim'
-"Plugin 'shougo/vimshell.vim'
-Plugin 'shougo/neocomplete.vim'
-"Plugin 'shougo/unite.vim'
-Plugin 'shougo/neomru.vim'
-
-"Other
-Plugin 'LustyJuggler'
 Plugin 'gorkunov/smartpairs.vim'
 Plugin 'scrooloose/nerdcommenter'
 
 "Show marks
 Plugin 'kshenoy/vim-signature'
-"Plugin 'ShowMarks'
-
-"Autopairs
-"Plugin 'jiangmiao/auto-pairs'
 
 " UNUSED "
 
+"Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'mileszs/ack.vim'
+"Plugin 'shmup/vim-sql-syntax'
+"Plugin 'dhruvasagar/vim-table-mode'
+"Plugin 'octol/vim-cpp-enhanced-highlight'
 "Plugin 'scrooloose/syntastic'
 "Plugin 'haskell.vim'
-"Plugin 'othree/html5.vim'
-"Plugin 'hail2u/vim-css3-syntax'
 "Plugin 'amirh/HTML-AutoCloseTag'
 "Plugin 'burnettk/vim-angular'
 "Plugin 'walm/jshint.vim'
 "Plugin 'Shutnik/jshint2.vim'
-" Plugin 'gnu-c'
+"Plugin 'gnu-c'
 
 call vundle#end()
 filetype plugin indent on
@@ -72,6 +59,7 @@ colorscheme gruvbox
 
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
+
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -280,3 +268,10 @@ map <leader>m :VimShell<CR>
 map <leader>cd :cd %:p:h<CR>
 map <leader>s :w<CR>:source %<CR>:PluginInstall<CR>:x<CR>
 "map <leader>y 
+
+"note-taking stuffs
+imap <C-]> <C-o>:SearchNotes<CR>
+nmap <C-]> :SearchNotes<CR>
+imap <2-LeftMouse> <C-o>:SearchNotes<CR>
+nmap <2-LeftMouse> :SearchNotes<CR>
+
